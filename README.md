@@ -3,6 +3,23 @@
 Use Packer to build Consul Server, Nomad Server, and Nomad Client base images based on Fedora
 Linux.
 
+Today, these images heavily assume the use of Fedora.  However, they _should_ work for other
+RHEL-based operating systems provided they ship `dnf`.  In the future, this repository may shift to
+support other operating systems such as Debian.
+
+Ensure the `DIGITALOCEAN_ACCESS_TOKEN` environment variable is set to your DigitalOcean access
+token, and then `packer build .`  Input variables are described below in case you want to change
+the defaults.
+
+> As mentioned above, the scripts assume the use of Fedora Linux.  You can safely change to either
+> Fedora 36 or Fedora 37, but YMMV with any other base OS.
+
+## Tailscale
+
+I have a use case that relies heavily on building Consul and Nomad on top of Tailscale.  For this
+reason, all of the provisioning scripts assume that everything is communicating via a Tailscale
+interface.
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |

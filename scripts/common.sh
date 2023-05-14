@@ -10,7 +10,7 @@ systemctl enable tailscaled
 # Download and Install consul
 useradd consul -d /home/consul -s /bin/false
 curl -fL \
-  "https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip" \
+  "https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_$( [ $(uname -m) = aarch64 ] && echo arm64 || echo amd64).zip" \
   | gunzip -> /usr/local/bin/consul
 chmod a+x /usr/local/bin/consul
 consul -version
