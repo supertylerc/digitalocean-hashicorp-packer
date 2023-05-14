@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 cat <<EOF > /etc/nomad.d/server.hcl
 server {
   enabled          = true

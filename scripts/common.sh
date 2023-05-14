@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 # Base package updates/installs
 dnf update -y
 dnf install -y dnf-plugins-core curl jq net-tools gzip

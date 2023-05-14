@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 # Configure Consul Client
 cat <<EOF > /etc/consul.d/client.hcl
 auto_encrypt = {
@@ -13,7 +15,7 @@ chmod u+x /usr/local/bin/nomad
 nomad -version
 
 mkdir -p /etc/nomad.d
-mkdir -p /opt/nomad/data
+mkdir -p /opt/nomad/data/plugins/
 dnf install -y podman
 systemctl enable podman
 curl -fL \

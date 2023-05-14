@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 cat <<EOF > /etc/consul.d/server.hcl
 # Only 1 server for development
 bootstrap_expect = 1
