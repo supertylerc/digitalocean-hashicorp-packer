@@ -57,3 +57,15 @@ variable "consul_dc" {
   type        = string
   default     = "dc1"
 }
+
+variable "nomad_podman_version" {
+  description = "Version of the Nomad Podman plugin to install"
+  type        = string
+  default     = "0.4.2"
+}
+
+variable "cni_version" {
+  description = "Version of the reference CNI plugins to install"
+  type        = string
+  default     = "1.3.0"
+}

@@ -31,7 +31,7 @@ build {
 
 # Nomad Server
 build {
-  name = "nomad"
+  name = "nomad-server"
   source "digitalocean.base" {
     droplet_name  = "nomad-server-packer"
     snapshot_name = "nomad-server-${var.base_os_slug}"
@@ -42,6 +42,8 @@ build {
       "CONSUL_VERSION=${var.consul_version}",
       "CONSUL_DC=${var.consul_dc}",
       "NOMAD_VERSION=${var.nomad_version}",
+      "NOMAD_PODMAN_VERSION=${var.nomad_podman_version}",
+      "CNI_VERSION=${var.cni_version}",
     ]
     scripts = [
       "scripts/common.sh",
@@ -54,7 +56,7 @@ build {
 
 # Nomad Client
 build {
-  name = "nomad"
+  name = "nomad-client"
   source "digitalocean.base" {
     droplet_name  = "nomad-client-packer"
     snapshot_name = "nomad-client-${var.base_os_slug}"
@@ -65,6 +67,8 @@ build {
       "CONSUL_VERSION=${var.consul_version}",
       "CONSUL_DC=${var.consul_dc}",
       "NOMAD_VERSION=${var.nomad_version}",
+      "NOMAD_PODMAN_VERSION=${var.nomad_podman_version}",
+      "CNI_VERSION=${var.cni_version}",
     ]
     scripts = [
       "scripts/common.sh",
